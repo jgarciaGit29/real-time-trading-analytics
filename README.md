@@ -30,7 +30,10 @@ This project simulates how hedge funds analyze real-time market data to support 
 - [Used Tools](#used-tools)  
   - [Connect](#connect)  
   - [Buffer](#buffer)  
-
+- Pipelines
+  - Stream processing
+  - Processing Data Stream
+  -Visualization
 ---
 
 ## **📊 The Data Set**
