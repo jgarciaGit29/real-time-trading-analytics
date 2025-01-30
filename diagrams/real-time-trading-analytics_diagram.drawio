@@ -1,0 +1,70 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36 Edg/132.0.0.0" version="26.0.10">
+  <diagram id="NLLFhMG3J_zeZ7qMwnoa" name="Page-1">
+    <mxGraphModel dx="1195" dy="791" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="region-ingestion" value="&lt;b&gt;1. INGESTION LAYER&lt;/b&gt;&lt;div style=&#39;font-size:14px;color:#666&#39;&gt;Data Collection &amp; Initial Storage&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#2F5496;strokeWidth=2;fillColor=#F0F8FF;fontSize=20;fontColor=#1F3A87;align=center;verticalAlign=top;spacingTop=10;" parent="1" vertex="1">
+          <mxGeometry x="50" y="40" width="400" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="alpha-vantage" value="&lt;b&gt;Alpha Vantage API&lt;/b&gt;" style="shape=cloud;whiteSpace=wrap;html=1;fontSize=16;fontColor=#1F3A87;align=center;strokeColor=#2F5496;fillColor=#FFFFFF;verticalAlign=middle;" parent="region-ingestion" vertex="1">
+          <mxGeometry x="40" y="80" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="azure-data-factory" value=" " style="shape=image;aspect=fixed;html=1;image=img/lib/azure2/databases/Data_Factory.svg;fontSize=14;align=center;verticalAlign=top;labelPosition=bottom;spacing=5;" parent="region-ingestion" vertex="1">
+          <mxGeometry x="80" y="180" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="label-data-factory" value="&lt;b&gt;Azure Data Factory&lt;/b&gt;&lt;div style=&#39;font-size:12px&#39;&gt;(Orchestration)&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacingTop=5;" parent="region-ingestion" vertex="1">
+          <mxGeometry x="80" y="300" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="bronze-zone" value="&lt;b&gt;Bronze Zone&lt;/b&gt;&lt;div style=&#39;font-size:12px&#39;&gt;(Raw Data Lake)&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;fontSize=14;fontColor=#FFFFFF;align=center;fillColor=#5B9BD5;strokeColor=#2F5496;verticalAlign=middle;" parent="region-ingestion" vertex="1">
+          <mxGeometry x="260" y="180" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="region-processing" value="&lt;b&gt;2. PROCESSING LAYER&lt;/b&gt;&lt;div style=&#39;font-size:14px;color:#666&#39;&gt;Data Transformation &amp; Enrichment&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#2F5496;strokeWidth=2;fillColor=#FAFAD2;fontSize=20;fontColor=#1F3A87;align=center;verticalAlign=top;spacingTop=10;" parent="1" vertex="1">
+          <mxGeometry x="500" y="40" width="500" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="databricks-processing" value=" " style="shape=image;aspect=fixed;html=1;image=img/lib/azure2/analytics/Azure_Databricks.svg;fontSize=14;align=center;verticalAlign=top;" parent="region-processing" vertex="1">
+          <mxGeometry x="80" y="100" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="label-databricks" value="&lt;b&gt;Azure Databricks&lt;/b&gt;&lt;div style=&#39;font-size:12px&#39;&gt;(Spark Processing)&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;spacingTop=5;" parent="region-processing" vertex="1">
+          <mxGeometry x="80" y="220" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="silver-layer" value="&lt;b&gt;Silver Zone&lt;/b&gt;&lt;div style=&#39;font-size:12px&#39;&gt;(Cleaned Data)&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;fontSize=14;fontColor=#FFFFFF;align=center;fillColor=#5B9BD5;strokeColor=#2F5496;verticalAlign=middle;" parent="region-processing" vertex="1">
+          <mxGeometry x="260" y="100" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="gold-layer" value="&lt;b&gt;Gold Zone&lt;/b&gt;&lt;div style=&#39;font-size:12px&#39;&gt;(Curated Data)&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;fontSize=14;fontColor=#FFFFFF;align=center;fillColor=#5B9BD5;strokeColor=#2F5496;verticalAlign=middle;" parent="region-processing" vertex="1">
+          <mxGeometry x="440" y="100" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="conn4" value="&lt;b style=&#39;font-size:14px&#39;&gt;Data Cleaning&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=3;strokeColor=#2F5496;fontSize=12;fontColor=#1F3A87;endArrow=classic;endFill=1;labelBackgroundColor=#ffffff;" parent="region-processing" source="databricks-processing" target="silver-layer" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn5" value="&lt;b style=&#39;font-size:14px&#39;&gt;Data Enrichment&lt;/b&gt;&lt;div style=&#39;font-size:12px&#39;&gt;(Business Logic)&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=3;strokeColor=#2F5496;fontSize=12;fontColor=#1F3A87;endArrow=classic;endFill=1;labelBackgroundColor=#ffffff;" parent="region-processing" source="silver-layer" target="gold-layer" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="region-governance" value="&lt;b&gt;3. GOVERNANCE LAYER&lt;/b&gt;&lt;div style=&#39;font-size:14px;color:#666&#39;&gt;Security &amp; Monitoring&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#2F5496;strokeWidth=2;fillColor=#E6E6E6;fontSize=20;fontColor=#1F3A87;align=center;verticalAlign=top;spacingTop=10;" parent="1" vertex="1">
+          <mxGeometry x="50" y="400" width="950" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="azure-monitor" value=" " style="shape=image;aspect=fixed;html=1;image=img/lib/azure2/management_governance/Monitor.svg;fontSize=14;align=center;verticalAlign=top;" parent="region-governance" vertex="1">
+          <mxGeometry x="200" y="60" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="label-monitor" value="&lt;b&gt;Azure Monitor&lt;/b&gt;&lt;div style=&#39;font-size:12px&#39;&gt;(Performance Tracking)&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;" parent="region-governance" vertex="1">
+          <mxGeometry x="200" y="180" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="key-vault" value=" " style="shape=image;aspect=fixed;html=1;image=img/lib/azure2/security/Key_Vaults.svg;fontSize=14;align=center;verticalAlign=top;" parent="region-governance" vertex="1">
+          <mxGeometry x="500" y="60" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="label-keyvault" value="&lt;b&gt;Key Vault&lt;/b&gt;&lt;div style=&#39;font-size:12px&#39;&gt;(Secrets Management)&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;" parent="region-governance" vertex="1">
+          <mxGeometry x="500" y="180" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="conn1" value="&lt;b style=&#39;font-size:14px&#39;&gt;API Calls&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=3;strokeColor=#2F5496;fontSize=12;fontColor=#1F3A87;endArrow=classic;endFill=1;labelBackgroundColor=#ffffff;entryX=0.5;entryY=0;exitX=0.5;exitY=1;" parent="1" source="alpha-vantage" target="azure-data-factory" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn2" value="&lt;b style=&#39;font-size:14px&#39;&gt;Raw Data Ingestion&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=3;strokeColor=#2F5496;fontSize=12;fontColor=#1F3A87;endArrow=classic;endFill=1;labelBackgroundColor=#ffffff;" parent="1" source="azure-data-factory" target="bronze-zone" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn3" value="&lt;b style=&#39;font-size:14px&#39;&gt;Batch Processing&lt;/b&gt;&lt;div style=&#39;font-size:12px&#39;&gt;(Daily Jobs)&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=3;strokeColor=#2F5496;fontSize=12;fontColor=#1F3A87;endArrow=classic;endFill=1;labelBackgroundColor=#ffffff;" parent="1" source="bronze-zone" target="databricks-processing" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
